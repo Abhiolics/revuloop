@@ -45,7 +45,7 @@ export default function CustomerFeedbackPage() {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [copiedReview, setCopiedReview] = React.useState(false)
 
-  const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<FeedbackData>({
+  const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<any>({
     resolver: zodResolver(feedbackSchema),
     defaultValues: {
       rating: 0,
@@ -82,13 +82,13 @@ export default function CustomerFeedbackPage() {
 
   const toggleTag = (tag: string) => {
     if (selectedTags.includes(tag)) {
-      setValue("tags", selectedTags.filter(t => t !== tag))
+      setValue("tags", selectedTags.filter((t: string) => t !== tag))
     } else {
       setValue("tags", [...selectedTags, tag])
     }
   }
 
-  const onSubmit = async (data: FeedbackData) => {
+  const onSubmit = async (data: any) => {
     setIsSubmitting(true)
     try {
       const { submitFeedbackAction } = await import("@/app/actions/feedback")

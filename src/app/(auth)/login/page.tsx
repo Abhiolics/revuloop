@@ -71,7 +71,7 @@ export default function LoginPage() {
         </p>
       </div>
 
-      <form action={signInWithGoogleAction}>
+      <form action={signInWithGoogleAction as any}>
         <Button variant="outline" className="w-full mb-6 relative group" type="submit">
           <div className="absolute left-4">
             <GoogleLogo size={20} weight="bold" />

@@ -22,7 +22,7 @@ export async function signUpAction(formData: FormData) {
 
   const parsed = signUpSchema.safeParse(data)
   if (!parsed.success) {
-    return { error: parsed.error.errors[0].message }
+    return { error: parsed.error.issues[0].message }
   }
 
   const { error } = await supabase.auth.signUp({

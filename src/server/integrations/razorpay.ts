@@ -3,8 +3,8 @@ import { env } from "@/lib/env"
 import crypto from "crypto"
 
 export const razorpayClient = new Razorpay({
-  key_id: env.RAZORPAY_KEY_ID || "",
-  key_secret: env.RAZORPAY_KEY_SECRET || "",
+  key_id: env.RAZORPAY_KEY_ID || "dummy_key",
+  key_secret: env.RAZORPAY_KEY_SECRET || "dummy_secret",
 })
 
 export const razorpayService = {

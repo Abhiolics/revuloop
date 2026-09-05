@@ -5,7 +5,9 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { ArrowLeft, EnvelopeSimple, WarningCircle } from "@phosphor-icons/react"
 import { resendVerificationAction } from "@/app/actions/auth"
 
-export default function VerifyPage() {
+import { Suspense } from "react"
+
+function VerifyContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const urlEmail = searchParams.get("email")
@@ -97,5 +99,13 @@ export default function VerifyPage() {
         <ArrowLeft size={16} /> Back to login
       </button>
     </motion.div>
+  )
+}
+
+export default function VerifyPage() {
+  return (
+    <Suspense fallback={<div className="flex w-full items-center justify-center p-12">Loading...</div>}>
+      <VerifyContent />
+    </Suspense>
   )
 }

@@ -55,7 +55,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        {...props}
+        {...(props as any)}
       />
     )
   }

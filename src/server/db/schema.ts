@@ -339,6 +339,8 @@ export const qrCodesRelations = relations(qrCodes, ({ one }) => ({
 export const businessesRelations = relations(businesses, ({ many }) => ({
   branches: many(branches),
   members: many(businessMembers),
+  qrCodes: many(qrCodes),
+  feedback: many(feedback),
 }));
 
 export const businessMembersRelations = relations(businessMembers, ({ one }) => ({

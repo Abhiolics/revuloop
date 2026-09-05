@@ -18,8 +18,8 @@ const signUpSchema = z.object({
   email: z.string().email("Please enter a valid work email"),
   phone: z.string().min(10, "Please enter a valid mobile number"),
   password: z.string().min(8, "Password must be at least 8 characters"),
-  terms: z.literal(true, {
-    errorMap: () => ({ message: "You must accept the terms" }),
+  terms: z.boolean().refine(val => val === true, {
+    message: "You must accept the terms",
   }),
 })
 
@@ -83,7 +83,7 @@ export default function SignUpPage() {
         </p>
       </div>
 
-      <form action={signInWithGoogleAction}>
+      <form action={signInWithGoogleAction as any}>
         <Button variant="outline" className="w-full mb-6 relative group" type="submit">
           <div className="absolute left-4">
             <GoogleLogo size={20} weight="bold" />
