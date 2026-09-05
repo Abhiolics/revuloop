@@ -1,26 +1,96 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap');
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  --color-ink: var(--ink);
+  --color-warm-ivory: var(--warm-ivory);
+  --color-paper: var(--paper);
+  --color-soft-stone: var(--soft-stone);
+  --color-muted-text: var(--muted-text);
+  --color-persimmon: var(--persimmon);
+  --color-dark-persimmon: var(--dark-persimmon);
+  --color-mint: var(--mint);
+  --color-deep-forest: var(--deep-forest);
+  --color-soft-amber: var(--soft-amber);
+  --color-destructive: var(--destructive);
+
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-border: var(--border-color);
+
+  --font-sans: 'General Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-editorial: var(--font-fraunces);
+  --font-mono: var(--font-ibm-plex-mono);
+}
+
+:root {
+  /* Light theme */
+  --ink: #171714;
+  --warm-ivory: #F6F3EC;
+  --paper: #FFFEFA;
+  --soft-stone: #E8E3D9;
+  --muted-text: #706D65;
+  --persimmon: #E85D3F;
+  --dark-persimmon: #B83E28;
+  --mint: #BCE8D1;
+  --deep-forest: #183D32;
+  --soft-amber: #F4C76A;
+  --destructive: #C44237;
+
+  --background: var(--warm-ivory);
+  --foreground: var(--ink);
+  --surface: var(--paper);
+  --surface-raised: #ffffff;
+  --surface-secondary: #f0ebe1;
+  --border-color: #E8E3D9;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Dark theme */
+    --background: #11110F;
+    --surface: #11110F;
+    --surface-raised: #191916;
+    --surface-secondary: #22221E;
+    --foreground: #F6F3EC;
+    --muted-text: #A7A39A;
+    --border-color: rgba(255,255,255,0.08);
+    --persimmon: #F06B4E;
+    --mint: #9CDBBE;
+    
+    /* Keep others consistent or mapped appropriately */
+    --ink: #171714; /* Might not be used as much in dark mode */
+    --warm-ivory: #F6F3EC;
+    --paper: #191916;
+    --soft-stone: #22221E;
+    --dark-persimmon: #E85D3F; 
+    --deep-forest: #9CDBBE; /* adapting for contrast if needed */
+    --soft-amber: #F4C76A;
+    --destructive: #EF4444;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base resets & utilities */
+* {
+  border-color: var(--border-color);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
 }
